@@ -27,13 +27,29 @@ Now, Install Dapr CLI: https://docs.dapr.io/getting-started/install-dapr-cli/
 
 Install Python dependencies:
 ```sh
-pip3 install requirements.txt
+pip3 install -r requirements.txt
+```
+
+For windows:
+```cmd
+pip install -r requirements.txt
 ```
 
 Run the app:
 ```sh
 dapr run --app-id=url_shortener --components-path=components/ --  python3 main.py
 ```
+
+For windows:
+```cmd
+dapr run --app-id=url_shortener --components-path=components/ --app-port 8080  --  python main.py  
+```
+
+>If you have Hyper-V enabled for Windows, you may experience port occupancy problems.
+You can use the following command to "exclude dynamic port "
+    `netsh int ipv4 add excludedportrange protocol=tcp startport=[start port] numberofports=[count]`
+
+
 
 Open the webapp on your browser: http://127.0.0.1:8080/
 
